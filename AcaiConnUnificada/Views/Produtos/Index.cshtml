@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AcaiConnUnificada.Models.Produto>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-success mt-3">Cadastrar Açaí</a>
+</p>
+<table class="table table-striped">
+	<thead>
+		<tr>			
+			<th>
+				@Html.DisplayNameFor(model => model.Nome)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Descricao)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Preco)
+			</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>				
+				<td>
+					@Html.DisplayFor(modelItem => item.Nome)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Descricao)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Preco)
+				</td>
+				<td class="text-end">
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>					
+				</td>
+				<td class="text-end">
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning ms-2">Detalhes</a>
+				</td>
+				<td class="text-end">
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger ms-2">Apagar</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
